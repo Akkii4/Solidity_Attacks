@@ -1,0 +1,84 @@
+{
+  "manifestVersion": "3.2",
+  "admin": {
+    "address": "0xc93E23f47c7F3801528e9280529D32762522ad32",
+    "txHash": "0x30b5eeb5f2591a031c7383b2175a4d502f4f9a251ab581ce2128fd2a99694766"
+  },
+  "proxies": [
+    {
+      "address": "0xF9650a1ae00f77005102a1af0A3f0f1E996c8da6",
+      "txHash": "0x90eaff855d04d7566515e6a9dcbd796aee0837d6876c0c58d0250432179495ad",
+      "kind": "transparent"
+    }
+  ],
+  "impls": {
+    "20a9208874fcbe85515336a404400ab8adba08eb9cadefe379072b668286f492": {
+      "address": "0xa95C70C4B9fDbec917D253B58d53cf3bD34DBE6C",
+      "txHash": "0x5eccb0f33d0e8ebcb25f47cf06672a67341d3e8c44dc0c37a01fb6957699328c",
+      "layout": {
+        "solcVersion": "0.8.18",
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:62",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:67"
+          },
+          {
+            "label": "owner",
+            "offset": 2,
+            "slot": "0",
+            "type": "t_address",
+            "contract": "UnsafeV1",
+            "src": "contracts/UnsafeV1.sol:13"
+          },
+          {
+            "label": "val",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_uint256",
+            "contract": "UnsafeV1",
+            "src": "contracts/UnsafeV1.sol:15"
+          },
+          {
+            "label": "start",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_uint256",
+            "contract": "UnsafeV1",
+            "src": "contracts/UnsafeV1.sol:17"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        }
+      }
+    }
+  }
+}
