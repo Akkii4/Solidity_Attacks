@@ -4,7 +4,7 @@ pragma solidity ^0.8.9;
 contract Vault {
     // slot 0
     uint public count = 123;
-    // slot 1
+    // slot 1 (starting from right to left)
     address public owner = msg.sender; // 20 bytes
     bool public isTrue = true; // 1 byte
     uint16 public u16 = 31; // 16 byte
@@ -23,7 +23,7 @@ contract Vault {
     }
 
     // slot 6 - length of array
-    // starting from slot hash(6) - array elements
+    // starting from slot keccak256(6) - array elements
     // slot where array element is stored = keccak256(slot)) + (index * elementSize)
     // where slot = 6 and elementSize = 2 (1 (uint) +  1 (bytes32))
     User[] private users;
@@ -58,18 +58,21 @@ contract Vault {
 }
 
 /*
-slot 0 - count
 web3.eth.getStorageAt("0x534E4Ce0ffF779513793cfd70308AF195827BD31", 0, console.log)
-slot 1 - u16, isTrue, owner
-web3.eth.getStorageAt("0x534E4Ce0ffF779513793cfd70308AF195827BD31", 1, console.log)
-slot 2 - password
-web3.eth.getStorageAt("0x534E4Ce0ffF779513793cfd70308AF195827BD31", 2, console.log)
+slot 0 - count
 
-slot 6 - array length
+web3.eth.getStorageAt("0x534E4Ce0ffF779513793cfd70308AF195827BD31", 1, console.log)
+slot 1 - u16, isTrue, owner
+
+web3.eth.getStorageAt("0x534E4Ce0ffF779513793cfd70308AF195827BD31", 2, console.log)
+slot 2 - password
+
+web3.eth.getStorageAt("0x534E4Ce0ffF779513793cfd70308AF195827BD31", 6, console.log)
+slot 6 - length of array
 getArrayLocation(6, 0, 2)
 web3.utils.numberToHex("111414077815863400510004064629973595961579173665589224203503662149373724986687")
 Note: We can also use web3 to get data location
-web3.utils.soliditySha3({ type: "uint", value: 6 })
+array element from slot 6 : web3.utils.soliditySha3({ type: "uint", value: 6 })
 1st user
 web3.eth.getStorageAt("0x534E4Ce0ffF779513793cfd70308AF195827BD31", "0xf652222313e28459528d920b65115c16c04f3efc82aaedc97be59f3f377c0d3f", console.log)
 web3.eth.getStorageAt("0x534E4Ce0ffF779513793cfd70308AF195827BD31", "0xf652222313e28459528d920b65115c16c04f3efc82aaedc97be59f3f377c0d40", console.log)
