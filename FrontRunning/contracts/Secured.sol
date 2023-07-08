@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.17;
 
-import "github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v4.5/contracts/utils/Strings.sol";
+import "@openzeppelin/contracts/utils/Strings.sol";
 
 /*
    Now Let's see how to guard from front running using commit reveal scheme.
